@@ -8,5 +8,5 @@
 | v-martino        | Victoria Martino    | YFK273 |
 | jkbufff          | Jennifer Buffington | YBN322 |
 | astring          | Anna Stringer       | PPK621 |
-| LEasterwood      | Lindsay Easterwood  | XVD924 |
+| l-easterwood     | Lindsay Easterwood  | XVD924 |
 
