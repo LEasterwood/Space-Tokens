@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> new capsule </title>  <!-- name on the tab -->
+    <link rel="stylesheet" href="styles.css"> <!-- connecting it to the css -->
+</head>
+    <body>
+        <h1> new capsule </h1>
+        <p> 
+            <!-- will need to change so that it will cancel the form but will deal it later -->
+            <a href = "main.html"> main </a> <br>
+            linking newCapsule.html to main
+        </p>
+
+        <form action="/timeline">
+            <p>
+                <!-- title of capsule -->
+                <label for="title of capsule"> name of capsule : </label>
+                <input id="nameOfCapsule" type="text" placeholder="title" name="nameOfCapsule" minlength="1" maxlength="100" required>
+            </p>
+            <p>
+                <!-- creation date -->
+                <label for="creation date"> creation date : </label>
+                <input id="nameOfCapsule" type="text" placeholder="date" name="nameOfCapsule">
+            </p>
+            <p> 
+                <!-- unlock date -->
+                <label for="unlock date"> unlock date : </label>
+                <input id="nameOfCapsule" type="text" placeholder="unlocked date" name="nameOfCapsule">
+            </p>
+            <p>
+                <!-- description -->
+                <label for="description"> description : </label>
+                <br>
+                <br>
+                <textarea id="requests" rows="5" cols="25" name="requests" 
+                    placeholder="type something within the box"> </textarea>
+                
+            </p>
+
+            <div>
+                <!-- cancel, reset, create button for the capsules -->
+
+                <!-- will need to fix this because it makes the reset button not work
+                <form action="/main.html">
+                    <label for="cancel"> </label>
+                    <input type="cancel" name="cancel" id="cancelButton">
+                </form>
+                -->
+
+                <form action="/newCapsule">
+                    <label for="reset"> </label>
+                    <input type="reset" name="reset" id="reset">
+                </form>
+
+                <form action="/timeline">
+                    <label for="create"> </label>
+                    <input type="submit" name="create" id="create">
+                </form>
+            </div>
+        </form>
+    </body>
+</html>

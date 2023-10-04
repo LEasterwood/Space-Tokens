@@ -1,0 +1,18 @@
+/* background */
+
+body{
+    background-color: #2c2f2f;
+}
+
+
+h1 {
+    color: white;
+    text-align: center;
+    letter-spacing: 8px;
+    font-size: 30px;
+    font-family:'Terano Futuristic Font', 'Times New Roman', Times
+}
+
+a, p {
+    color: white;
+}
