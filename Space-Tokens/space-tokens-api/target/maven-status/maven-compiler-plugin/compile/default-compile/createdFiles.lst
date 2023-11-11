@@ -1,0 +1,5 @@
+com/spacetokens/spacetokensapp/SpaceTokensAppApplication.class
+com/spacetokens/spacetokensapp/controllers/CapsuleController.class
+com/spacetokens/spacetokensapp/entities/Capsule.class
+com/spacetokens/spacetokensapp/repositories/CapsuleRepository.class
+com/spacetokens/spacetokensapp/services/CapsuleService.class
