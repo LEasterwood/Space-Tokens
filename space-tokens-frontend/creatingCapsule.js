@@ -1,18 +1,26 @@
+
 console.log("Hello World");
+
+
+
+
+
 
 //keeps saying it is null??
 
-
-const capsuleForm = document.querySelector('#createNew');
-const capsuleNameForm = document.querySelector('#capsuleName');
-const capsuleUnlockDate = document.querySelector('#unlockedDate');
-const capsuleDescription = document.querySelector('#description');
 const capsuleList = document.querySelector('#capsuleList'); // new li that will hopefully go to timeline.html
 
  // will be added to the capsule list on timeline.html
-capsuleForm.addEventListener('submit', function(e) {
+document.addEventListener('submit', function(e) {
     e.preventDefault();
-    alert("capsule created!")
+    const capsuleForm = document.querySelector('#createNewForm');
+    const capsuleName = capsuleForm.capsuleName.value;
+    const unlockedDate = capsuleForm.unlockedDate.value;
+    const description = capsuleForm.description.value;
+    console.log("capsule created: " + capsuleName);
+    console.log("unlock date: " + unlockedDate);
+    console.log("description: " + description);
+    submitCapsule(capsuleName);
     // const capsuleName = capsuleNameForm.value;
     // const newLI = document.createElement("LI");
     // newLI.innerText = capsuleName;
@@ -24,17 +32,9 @@ capsuleForm.addEventListener('submit', function(e) {
     // capsuleDescription.value = "";
 })
 
-// createNewForm.addEventListener('submit', function(e) {
-//     e.preventDefault();
-//     alert("capsule created!")
-//     const capsuleName = (createNewForm.elements.capsuleName.value);
-//     const unlockedDate = (createNewForm.elements.unlockedDate.value);
-//     const description = (createNewForm.elements.description.value);
-//     //const capsuleName = capsuleNameForm.value;
+//post to backend and then endpoint that i created
 
-//     addCapsule(capsuleName, unlockedDate, description )
-    
-// })
+// fetchlocalhost:8080/api/capsules/new?capsuleName=
 
 // const addCapsule = (capsuleName, unlockedDate, description) => {
 //     const capsuleList = document.createElement("li");
@@ -50,20 +50,20 @@ capsuleForm.addEventListener('submit', function(e) {
 
 // submitCapsule();
 
-// function submitCapsule() {
+function submitCapsule(capsuleName) {
 
-//     //sending date to the backend
-//    fetch('localhost:8080/capsules/new?capsuleName=test-capsule', {
-//        method: 'POST',
-//        headers: {
-//           'Content-Type':  'application/json'
-//        }
-//    })
-//    .then(data => {
-//        // handle the response from the backend
-//        console.log(data);
-//    })
-//    .catch(error => {
-//        console.error('Error', error);
-//    });
-// }
+    //sending date to the backend
+   fetch(`http://localhost:8080/api/capsules/new?capsuleName=${capsuleName}`, {
+       method: 'POST',
+       headers: {
+          'Content-Type':  'application/json'
+       }
+   })
+   .then(data => {
+       // handle the response from the backend
+       console.log(data);
+   })
+   .catch(error => {
+       console.error('Error', error);
+   });
+}
