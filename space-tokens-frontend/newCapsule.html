@@ -14,59 +14,71 @@
             <!-- will need to change so that it will cancel the form but will deal it later -->
             <a href = "main.html"> main </a> <br>
         </p>
-
-        <!-- input meaning : 
-            type = the type of input it is
-            id = id/label must match
-            name = what gets submitted and the name connects it with the info connected to the label
-            value = starting set value
-            -->
-
-            <form action="/timeline">
-            <p>
-                <!-- title of capsule -->
-                <label for="capsuleName"> name of capsule : </label>
-                <input id="capsuleName" type="text" placeholder="title" name="capsuleName" minlength="1" maxlength="100" required>
-            </p>
-
-                <!-- creation date : will be given by the back end -->
-
-            <p> 
-                <!-- unlock date -->
-                <!-- will need to fix so you can not put a date before the current date of that day -->
-                <label for="unlockedDate"> unlock date : </label>
-                <input id="unlockedDate" type="date" name="unlockedDate" min="current date" required>
-            </p>
-
-            <p>
-                <!-- description -->
-                <label for="description"> description : </label>
-                <br>
-                <textarea id="description" rows="5" cols="25" name="description" 
-                    placeholder="type something within the box"> </textarea>
-                
-            </p>
-
             <div>
-                <!-- cancel, reset, create button for the capsules -->
-                <!-- 
-                <form action="/main.html">
-                    <label for=""> </label>
-                    <input type="" value="" id="">x
-                </form>
+            <!-- input meaning : 
+                type = the type of input it is
+                id = id/label must match
+                name = what gets submitted and the name connects it with the info connected to the label
+                value = starting set value
                 -->
 
-                <form action="/newCapsule">
-                    <label for="resetPage"> </label>
-                    <input type="reset" value="reset" id="resetPage">
+                <!-- <form action="/timeline"> -->
+                <form method= "POST" action ="timeline.html" id = "createNewForm">
+                    
+                    <!-- title of capsule -->
+                    <label for="capsuleName"> name of capsule : </label>
+                    <input id="capsuleName" type="text" placeholder="title" name="capsuleName" minlength="1" maxlength="100" required>
+                    <br>
+
+                    <!-- creation date : will be given by the back end -->
+
+                    <!-- unlock date -->
+                    <!-- will need to fix so you can not put a date before the current date of that day -->
+                    <label for="unlockedDate"> unlock date : </label>
+                    <input id="unlockedDate" type="date" name="unlockedDate" min="current date" required>
+                    <br>
+
+                    <!-- description -->
+                    <label for="description"> description : </label>
+                    <br>
+                    <textarea id="description" rows="5" cols="25" name="description" 
+                        placeholder="type something within the box"> </textarea>
+                    <br>
+
+                    <!-- HERE FOR NOW BUT WANT TO TRANSFER TO THE TIMELINE.HTML -->
+                    <ul id = "capsuleList"> </ul>
+                    <br>
+
+                    <!-- NOW IT DOESNT WANT TO GO TO THE NEXT PAGE-->
+                    <label for="createNew"> </label>
+                    <input type="submit" value="create" name="create" id="createNew">
                 </form>
 
-                <form action="/timeline.html">
-                    <label for="create"> </label>
-                    <input type="submit" value="create" name="create" id="create">
-                </form>
-                <script src="creatingCapsule.js"> </script>
+                <!-- <script>
+                    // Add an event listener to the form
+                    document.getElementById("createNew").addEventListener("submit", function (event) {
+                      // Prevent the default form submission behavior
+                      event.preventDefault();
+                
+                      const newLI = document.createElement("LI");
+                        newLI.innerText = capsuleName;
+                        console.log(newLI);
+                        capsuleList.append(newLI);
+
+                        capsuleNameForm.value = "";
+
+                
+                      // Submit the form
+                      this.submit();
+                    });
+                  </script> -->
             </div>
-        </form>
+            <div>
+                <!-- FIX THIS IG BECAUSE IT WAS WORKING ON MY PC?????? -->
+                <a href="javascript: location.reload();">
+                    <label for="resetPage"> </label>
+                    <input type="reset" value="reset" id="resetPage">
+            </div>
+        <script src="creatingCapsule.js"> </script> 
     </body>
 </html>
