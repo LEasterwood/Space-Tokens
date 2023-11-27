@@ -1,12 +1,4 @@
-
 console.log("Hello World");
-
-
-
-
-
-
-//keeps saying it is null??
 
 const capsuleList = document.querySelector('#capsuleList'); // new li that will hopefully go to timeline.html
 
@@ -20,48 +12,27 @@ document.addEventListener('submit', function(e) {
     console.log("capsule created: " + capsuleName);
     console.log("unlock date: " + unlockedDate);
     console.log("description: " + description);
-    submitCapsule(capsuleName);
-    // const capsuleName = capsuleNameForm.value;
-    // const newLI = document.createElement("LI");
-    // newLI.innerText = capsuleName;
-    // console.log(newLI);
-    // capsuleList.append(newLI);
-
-    // capsuleNameForm.value = "";
-    // capsuleUnlockDate.value = "";
-    // capsuleDescription.value = "";
+    submitCapsule(capsuleName);     //anony
 })
 
-//post to backend and then endpoint that i created
-
-// fetchlocalhost:8080/api/capsules/new?capsuleName=
-
-// const addCapsule = (capsuleName, unlockedDate, description) => {
-//     const capsuleList = document.createElement("li");
-//     const bTag = doocument.createElement('b');      // bold  the title
-//     bTag.append(capsuleName)
-//     capsuleList.append(bTag);
-//     capsuleList.append(`-- ${unlockedDate}`);
-//     capsuleList.append(`-- ${description}`);
-//     capsuleList.append(capsuleList);
-// }
-
-
-
-// submitCapsule();
-
-function submitCapsule(capsuleName) {
+function submitCapsule(capsuleName, unlockedDate, description) {
 
     //sending date to the backend
-   fetch(`http://localhost:8080/api/capsules/new?capsuleName=${capsuleName}`, {
+   fetch(`http://localhost:8080/api/capsules/new?capsuleName=${capsuleName, unlockedDate, description}`, {
        method: 'POST',
        headers: {
           'Content-Type':  'application/json'
        }
    })
+   .then(response => response.json())
    .then(data => {
        // handle the response from the backend
-       console.log(data);
+       if (data.ok) {
+        alert('capsule created');
+        window.location.replace("timeline.html");
+       } else {
+        console.error("Error", data.error);
+       }
    })
    .catch(error => {
        console.error('Error', error);
